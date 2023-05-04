@@ -1,2 +1,2 @@
 all:
-	gcc -Wall -Wextra tmp.c -o main
+	gcc -Wall -Wextra main.c -o main

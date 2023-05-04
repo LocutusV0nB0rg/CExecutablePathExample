@@ -14,16 +14,15 @@ void remove_last_section(char* str, const char* delimiter) {
     }
 }
 
-char* getPathOfExecutable(char* buf) {
+void getPathOfExecutable(char* buf) {
     ssize_t count = readlink( "/proc/self/exe", buf, PATH_MAX );
     buf[count] = '\0';
     remove_last_section(buf, "/");
     strcat(buf, "/");
-    return buf;
 }
 
 int main() {
     char* buf = (char *) malloc(PATH_MAX + 1);
     getPathOfExecutable(buf);
-    printf("Path: %s", buf);
+    printf("Path: %s\n", buf);
 }
